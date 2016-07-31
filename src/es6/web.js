@@ -7,7 +7,6 @@ import json from 'rollup-plugin-json';
 import nodeGlobals from 'rollup-plugin-node-globals';
 import builtins from 'rollup-plugin-node-builtins';
 import uglify from 'rollup-plugin-uglify';
-import webpack from 'webpack';
 
 import config, { npmPackage } from './config';
 

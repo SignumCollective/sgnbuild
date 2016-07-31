@@ -1,6 +1,6 @@
 {
   "name": "sgnbuild",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "The build system used by all Signum projects",
   "main": "bin/index.js",
   "jsnext:main": "src/es6/index.js",
@@ -39,8 +39,7 @@
     "rollup-plugin-node-builtins": "^1.0.7",
     "rollup-plugin-node-globals": "^1.0.6",
     "rollup-plugin-node-resolve": "^2.0.0",
-    "rollup-plugin-uglify": "^1.0.1",
-    "webpack": "^1.13.1"
+    "rollup-plugin-uglify": "^1.0.1"
   },
   "devDependencies": {
     "eslint-config-airbnb": "^9.0.1"

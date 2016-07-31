@@ -1,5 +1,6 @@
 import * as path from 'path';
 import { rollup } from 'rollup';
+import babel from 'rollup-plugin-babel';
 
 import config, { npmPackage } from './config';
 
@@ -8,6 +9,12 @@ export default function buildLibrary() {
   console.log('Running rollup...');
   return rollup({
     entry: path.join(process.cwd(), config.root, 'es6', 'index.js'),
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+        presets: ['es2015-rollup'],
+      }),
+    ],
   })
   .then(bundle =>
     bundle.write({
