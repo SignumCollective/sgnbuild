@@ -1,6 +1,6 @@
 {
   "name": "sgnbuild",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "The build system used by all Signum projects",
   "main": "bin/index.js",
   "jsnext:main": "src/es6/index.js",
@@ -12,7 +12,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "sgnbuild"
+    "prepublish": "sgnbuild && node bin/index.js"
   },
   "repository": {
     "type": "git",
