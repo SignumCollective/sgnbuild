@@ -1,4 +1,4 @@
-#  sgnbuild
+#  sgnbuild [![NPM]( 	https://img.shields.io/npm/v/sgnbuild.svg) ![Downloads per month](https://img.shields.io/npm/dm/sgnbuild.svg) ![Downloads total](https://img.shields.io/npm/dt/sgnbuild.svg)](https://npmjs.com/package/sgnbuild)
 ## A web application build system
 
 Motto: _it works, nothing more_
