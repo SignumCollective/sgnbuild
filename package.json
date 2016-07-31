@@ -1,6 +1,6 @@
 {
   "name": "sgnbuild",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "The build system used by all Signum projects",
   "main": "bin/index.js",
   "jsnext:main": "src/es6/index.js",
@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "babel-preset-es2015-rollup": "^1.1.1",
+    "babel-preset-react": "^6.11.1",
     "commander": "^2.9.0",
     "rollup": "^0.34.1",
     "rollup-plugin-babel": "^2.6.1",
