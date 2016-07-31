@@ -35,5 +35,8 @@
     "babel-preset-es2015-webpack": "^6.4.2",
     "rollup": "^0.34.1",
     "webpack": "^1.13.1"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^9.0.1"
   }
 }
