@@ -13,26 +13,28 @@ import config, { npmPackage } from './config';
 export default function buildWeb() {
   const start = new Date;
   console.log('Running rollup...');
+  const plugins = [
+    builtins(),
+    nodeResolve({
+      jsNext: true,
+      main: true,
+    }),
+    commonjs({
+      include: 'node_modules/**',
+      sourceMap: false,
+    }),
+    babel({
+      exclude: ['node_modules/**', '*.json'],
+      presets: ['es2015-rollup', 'stage-0', 'react'],
+      plugins: ['transform-runtime'],
+    }),
+    json(),
+    nodeGlobals(),
+    config.uglify ? uglify() : void 0,
+  ].filter(x => x != null);
   return rollup({
     entry: path.join(process.cwd(), config.root, 'es6', 'index.js'),
-    plugins: [
-      builtins(),
-      nodeResolve({
-        jsNext: true,
-        main: true,
-      }),
-      commonjs({
-        include: 'node_modules/**',
-        sourceMap: false,
-      }),
-      babel({
-        exclude: 'node_modules/**',
-        presets: ['es2015-rollup', 'react'],
-      }),
-      json(),
-      nodeGlobals(),
-      config.uglify ? uglify() : void 0,
-    ],
+    plugins,
   })
   .then(bundle =>
     bundle.write({

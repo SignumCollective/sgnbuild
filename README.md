@@ -42,3 +42,5 @@ Take a look at sgnbuild's `package.json` to see an example which is enough for m
   "type": "node"
 }
 ```
+
+You MUST have `babel-runtime` in your project's dependencies.
