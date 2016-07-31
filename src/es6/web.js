@@ -27,6 +27,7 @@ export default function buildWeb() {
       exclude: ['node_modules/**', '*.json'],
       presets: ['es2015-rollup', 'stage-0', 'react'],
       plugins: ['transform-runtime'],
+      runtimeHelpers: true,
     }),
     json(),
     nodeGlobals(),

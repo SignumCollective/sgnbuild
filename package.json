@@ -1,6 +1,6 @@
 {
   "name": "sgnbuild",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "The build system used by all Signum projects",
   "main": "bin/index.js",
   "jsnext:main": "src/es6/index.js",
@@ -49,6 +49,11 @@
     "rollup-pluginutils": "^1.5.1"
   },
   "devDependencies": {
-    "eslint-config-airbnb": "^9.0.1"
+    "babel-eslint": "^6.1.2",
+    "eslint": "^2.13.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.12.0",
+    "eslint-plugin-jsx-a11y": "^1.5.5",
+    "eslint-plugin-react": "^5.2.2"
   }
 }

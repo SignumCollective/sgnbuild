@@ -15,6 +15,7 @@ export default function buildNode() {
       // Uglify hates ES2015
       presets: [config.uglify ? 'es2015-rollup' : 'es2015-node-rollup', 'stage-0', 'react'],
       plugins: ['transform-runtime'],
+      runtimeHelpers: true,
     }),
     json(),
     config.uglify ? uglify() : void 0,

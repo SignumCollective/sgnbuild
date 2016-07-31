@@ -4,6 +4,7 @@
     "uglify": true
   },
   "dependencies": {
+    "babel-runtime": "^6.11.6",
     "jquery": "^3.1.0"
   }
 }

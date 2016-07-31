@@ -14,6 +14,7 @@ export default function buildLibrary() {
       exclude: ['node_modules/**', '*.json'],
       presets: ['es2015-rollup', 'stage-0', 'react'],
       plugins: ['transform-runtime'],
+      runtimeHelpers: true,
     }),
     json(),
     config.uglify ? uglify() : void 0,
