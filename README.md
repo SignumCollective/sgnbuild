@@ -7,15 +7,21 @@ Motto: _it works, nothing more_
 
  1. Install sgnbuild from npm
 
-        npm install --global sgnbuild
+    ```sh
+    npm install --global sgnbuild
+    ```
 
  2. Build
 
-        sgnbuild
+    ```sh
+    sgnbuild
+    ```
 
  3. Install
 
-        npm install --global
+    ```sh
+    npm install --global
+    ```
 
 ## Usage instructions
 
