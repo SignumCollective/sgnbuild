@@ -11,8 +11,8 @@
     "node": ">= 4.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "sgnbuild && node bin/index.js"
+    "test": "eslint src/",
+    "prepublish": "sgnbuild && node bin/index.js && npm test"
   },
   "repository": {
     "type": "git",
