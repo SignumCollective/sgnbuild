@@ -1,0 +1,38 @@
+{
+  "name": "sgnbuild",
+  "version": "0.1.0",
+  "description": "The build system used by all Signum projects",
+  "main": "bin/index.js",
+  "jsnext:main": "src/es6/index.js",
+  "bin": {
+    "sgnbuild": "bin/index.js"
+  },
+  "engines": {
+    "node": ">= 4.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SignumCollective/sgnbuild.git"
+  },
+  "keywords": [
+    "build"
+  ],
+  "author": "Zebulon McCorkle <zmccorkle@signum.io>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/SignumCollective/sgnbuild/issues"
+  },
+  "homepage": "https://github.com/SignumCollective/sgnbuild#readme",
+  "sgnbuild": {
+    "type": "node"
+  },
+  "dependencies": {
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015-webpack": "^6.4.2",
+    "rollup": "^0.34.1",
+    "webpack": "^1.13.1"
+  }
+}
