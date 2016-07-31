@@ -20,8 +20,7 @@
 
     <section class="main-content">
       <h2>
-<a id="a-web-application-build-system---" class="anchor" href="#a-web-application-build-system---" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>A web application build system <a href="https://npmjs.com/package/sgnbuild"><img src="https://img.shields.io/npm/v/sgnbuild.svg" alt="NPM"> <img src="https://img.shields.io/npm/dm/sgnbuild.svg" alt="Downloads per month"> <img src="https://img.shields.io/npm/dt/sgnbuild.svg" alt="Downloads total"></a>
-</h2>
+<a id="a-web-application-build-system" class="anchor" href="#a-web-application-build-system" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>A web application build system</h2>
 
 <p>Motto: <em>it works, nothing more</em></p>
 
@@ -32,20 +31,17 @@
 <li>
 <p>Install sgnbuild from npm</p>
 
-<pre><code>npm install --global sgnbuild
-</code></pre>
+<div class="highlight highlight-source-shell"><pre>npm install --global sgnbuild</pre></div>
 </li>
 <li>
 <p>Build</p>
 
-<pre><code>sgnbuild
-</code></pre>
+<div class="highlight highlight-source-shell"><pre>sgnbuild</pre></div>
 </li>
 <li>
 <p>Install</p>
 
-<pre><code>npm install --global
-</code></pre>
+<div class="highlight highlight-source-shell"><pre>npm install --global</pre></div>
 </li>
 </ol>
 
@@ -72,6 +68,8 @@
 </li>
 <li>
 <code>sgnbuild.global: string</code>: If <code>sgnbuild.type</code> is <code>"library"</code>, this sets the global to put all exported fields in if the environment is not CommonJS or AMD.</li>
+<li>
+<code>sgnbuild.uglify: boolean</code>: If <code>sgnbuild.type</code> is <code>"web"</code>, the bundle will be run through UglifyJS.</li>
 </ul>
 
 <p>Take a look at sgnbuild's <code>package.json</code> to see an example which is enough for most circumstances:</p>
@@ -79,6 +77,8 @@
 <div class="highlight highlight-source-json"><pre><span class="pl-s"><span class="pl-pds">"</span>sgnbuild<span class="pl-pds">"</span></span>: {
   <span class="pl-s"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>node<span class="pl-pds">"</span></span>
 }</pre></div>
+
+<p>You MUST have <code>babel-runtime</code> in your project's dependencies.</p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/SignumCollective/sgnbuild">sgnbuild</a> is maintained by <a href="https://github.com/SignumCollective">SignumCollective</a>.</span>
