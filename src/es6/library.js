@@ -7,12 +7,12 @@ export default function buildLibrary() {
   const start = new Date;
   console.log('Running rollup...');
   return rollup({
-    entry: path.join('.', config.root, 'es6', 'index.js'),
+    entry: path.join(process.cwd(), config.root, 'es6', 'index.js'),
   })
   .then(bundle =>
     bundle.write({
       format: 'umd',
-      dest: 'bin/index.js',
+      dest: path.join(process.cwd(), 'bin', 'index.js'),
       moduleId: npmPackage.name,
       moduleName: config.global || npmPackage.name,
     })

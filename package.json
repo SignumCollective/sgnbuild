@@ -1,6 +1,6 @@
 {
   "name": "sgnbuild",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "The build system used by all Signum projects",
   "main": "bin/index.js",
   "jsnext:main": "src/es6/index.js",
@@ -31,9 +31,15 @@
     "type": "node"
   },
   "dependencies": {
-    "babel-loader": "^6.2.4",
-    "babel-preset-es2015-webpack": "^6.4.2",
+    "babel-preset-es2015-rollup": "^1.1.1",
     "rollup": "^0.34.1",
+    "rollup-plugin-babel": "^2.6.1",
+    "rollup-plugin-commonjs": "^3.3.1",
+    "rollup-plugin-json": "^2.0.1",
+    "rollup-plugin-node-builtins": "^1.0.7",
+    "rollup-plugin-node-globals": "^1.0.6",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-uglify": "^1.0.1",
     "webpack": "^1.13.1"
   },
   "devDependencies": {

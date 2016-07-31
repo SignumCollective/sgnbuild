@@ -1,0 +1,9 @@
+{
+  "sgnbuild": {
+    "type": "web",
+    "uglify": true
+  },
+  "dependencies": {
+    "jquery": "^3.1.0"
+  }
+}
