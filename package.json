@@ -1,6 +1,6 @@
 {
   "name": "sgnbuild",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "The build system used by all Signum projects",
   "main": "bin/index.js",
   "jsnext:main": "src/es6/index.js",
