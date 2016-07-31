@@ -1,6 +1,7 @@
 import * as path from 'path';
 import { rollup } from 'rollup';
 import babel from 'rollup-plugin-babel';
+import json from 'rollup-plugin-json';
 
 import config, { npmPackage } from './config';
 
@@ -14,6 +15,7 @@ export default function buildLibrary() {
         exclude: 'node_modules/**',
         presets: ['es2015-rollup'],
       }),
+      json(),
     ],
   })
   .then(bundle =>
@@ -26,5 +28,8 @@ export default function buildLibrary() {
   )
   .then(() => {
     console.log(`Build finished in ${(new Date - start) / 1000} seconds.`);
+  })
+  .catch(err => {
+    console.error(`Build error: ${err}`);
   });
 }

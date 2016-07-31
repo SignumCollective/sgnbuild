@@ -1,5 +1,6 @@
 import * as path from 'path';
 import { rollup } from 'rollup';
+import json from 'rollup-plugin-json';
 
 import config, { npmPackage } from './config';
 
@@ -8,6 +9,9 @@ export default function buildNode() {
   console.log('Running rollup...');
   return rollup({
     entry: path.join(process.cwd(), config.root, 'es6', 'index.js'),
+    plugins: [
+      json(),
+    ],
   })
   .then(bundle =>
     bundle.write({
@@ -20,5 +24,8 @@ export default function buildNode() {
   )
   .then(() => {
     console.log(`Build finished in ${(new Date - start) / 1000} seconds.`);
+  })
+  .catch(err => {
+    console.error(`Build error: ${err}`);
   });
 }

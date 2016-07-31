@@ -4,7 +4,7 @@ import buildLibrary from './library';
 import buildWeb from './web';
 import buildNode from './node';
 
-switch (process.argv[2] || config.type) {
+switch (config.type) {
   case 'library': {
     buildLibrary();
   } break;
