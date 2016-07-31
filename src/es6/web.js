@@ -27,6 +27,9 @@ export default function buildWeb() {
           filename: 'index.js',
           path: './bin',
         },
+        plugins: (config.uglify
+            ? [new webpack.optimize.UglifyJsPlugin()]
+            : void 0),
         loaders: [
           {
             test: /.(c)?js$/,
