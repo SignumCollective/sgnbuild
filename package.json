@@ -1,6 +1,6 @@
 {
   "name": "sgnbuild",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "The build system used by all Signum projects",
   "main": "bin/index.js",
   "jsnext:main": "src/es6/index.js",
@@ -41,7 +41,7 @@
     "commander": "^2.9.0",
     "rollup": "^0.34.1",
     "rollup-plugin-babel": "^2.6.1",
-    "rollup-plugin-bundle-babel": "file:///Users/zmccorkle/Documents/rollup-plugin-bundle-babel",
+    "rollup-plugin-bundle-babel": "^2.0.0",
     "rollup-plugin-commonjs": "^3.3.1",
     "rollup-plugin-json": "^2.0.1",
     "rollup-plugin-node-builtins": "^1.0.7",

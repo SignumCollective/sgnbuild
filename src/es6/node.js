@@ -13,7 +13,7 @@ export default function buildNode() {
   console.log('Running rollup...');
   const plugins = [
     babel({
-      exclude: ['node_modules/**', '*.json'],
+      exclude: [`${__dirname}/../node_modules/**`, 'node_modules/**', '*.json'],
       // Uglify hates ES2015
       presets: [config.uglify ? 'es2015-rollup' : 'es2015-node-rollup', 'stage-0', 'react'],
       plugins: ['transform-runtime'],
@@ -24,7 +24,7 @@ export default function buildNode() {
       jsNext: true,
     }),
     commonjs({
-      include: 'node_modules/**',
+      include: [`${__dirname}/../node_modules/**`, 'node_modules/**'],
       sourceMap: false,
     }),
     json(),

@@ -13,7 +13,7 @@ export default function buildLibrary() {
   console.log('Running rollup...');
   const plugins = [
     babel({
-      exclude: ['node_modules/**', '*.json'],
+      exclude: [`${__dirname}/../node_modules/**`, '*.json'],
       presets: ['es2015-rollup', 'stage-0', 'react'],
       plugins: ['transform-runtime'],
       runtimeHelpers: true,
@@ -23,7 +23,7 @@ export default function buildLibrary() {
       jsNext: true,
     }),
     commonjs({
-      include: 'node_modules/**',
+      include: [`${__dirname}/../node_modules/**`, 'node_modules/**'],
       sourceMap: false,
     }),
     json(),

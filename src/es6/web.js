@@ -7,6 +7,7 @@ import json from 'rollup-plugin-json';
 import nodeGlobals from 'rollup-plugin-node-globals';
 import builtins from 'rollup-plugin-node-builtins';
 import uglify from 'rollup-plugin-uglify';
+import bundleBabel from 'rollup-plugin-bundle-babel';
 
 import config, { npmPackage } from './config';
 
@@ -19,8 +20,12 @@ export default function buildWeb() {
       jsNext: true,
       main: true,
     }),
+    bundleBabel({
+      main: true,
+      jsNext: true,
+    }),
     commonjs({
-      include: 'node_modules/**',
+      include: [`${__dirname}/../node_modules/**`, 'node_modules/**'],
       sourceMap: false,
     }),
     babel({
