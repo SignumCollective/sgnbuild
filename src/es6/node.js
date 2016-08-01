@@ -3,6 +3,8 @@ import { rollup } from 'rollup';
 import babel from 'rollup-plugin-babel';
 import json from 'rollup-plugin-json';
 import uglify from 'rollup-plugin-uglify';
+import bundleBabel from 'rollup-plugin-bundle-babel';
+import commonjs from 'rollup-plugin-commonjs';
 
 import config, { npmPackage } from './config';
 
@@ -16,6 +18,14 @@ export default function buildNode() {
       presets: [config.uglify ? 'es2015-rollup' : 'es2015-node-rollup', 'stage-0', 'react'],
       plugins: ['transform-runtime'],
       runtimeHelpers: true,
+    }),
+    bundleBabel({
+      main: true,
+      jsNext: true,
+    }),
+    commonjs({
+      include: 'node_modules/**',
+      sourceMap: false,
     }),
     json(),
     config.uglify ? uglify() : void 0,

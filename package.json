@@ -1,6 +1,6 @@
 {
   "name": "sgnbuild",
-  "version": "0.8.1",
+  "version": "0.9.0",
   "description": "The build system used by all Signum projects",
   "main": "bin/index.js",
   "jsnext:main": "src/es6/index.js",
@@ -28,7 +28,8 @@
   },
   "homepage": "https://github.com/SignumCollective/sgnbuild#readme",
   "sgnbuild": {
-    "type": "node"
+    "type": "node",
+    "uglify": true
   },
   "dependencies": {
     "babel-plugin-transform-runtime": "^6.12.0",
@@ -40,6 +41,7 @@
     "commander": "^2.9.0",
     "rollup": "^0.34.1",
     "rollup-plugin-babel": "^2.6.1",
+    "rollup-plugin-bundle-babel": "file:///Users/zmccorkle/Documents/rollup-plugin-bundle-babel",
     "rollup-plugin-commonjs": "^3.3.1",
     "rollup-plugin-json": "^2.0.1",
     "rollup-plugin-node-builtins": "^1.0.7",
