@@ -9,38 +9,35 @@ import commonjs from 'rollup-plugin-commonjs';
 import config, { npmPackage } from './config';
 
 export default async function buildLibrary() {
-  try {
-    const start = new Date;
-    console.log('Running rollup...');
-    const bundle = await rollup({
-      entry: path.join(process.cwd(), config.root, 'es6', 'index.js'),
-      plugins: [
-        babel({
-          exclude: [`${__dirname}/../node_modules/**`, '*.json'],
-          presets: ['es2015-rollup', 'stage-0', 'react'],
-          plugins: ['transform-runtime'],
-          runtimeHelpers: true,
-        }),
-        bundleBabel({
-          main: true,
-          jsNext: true,
-        }),
-        commonjs({
-          include: [`${__dirname}/../node_modules/**`, 'node_modules/**'],
-          sourceMap: false,
-        }),
-        json(),
-        config.uglify ? uglify() : void 0,
-      ].filter(x => x != null),
-    });
-    await bundle.write({
-      format: 'umd',
-      dest: path.join(process.cwd(), 'bin', 'index.js'),
-      moduleId: npmPackage.name,
-      moduleName: config.global || npmPackage.name,
-    });
-    console.log(`Build finished in ${(new Date - start) / 1000} seconds.`);
-  } catch (err) {
-    console.error(`Build error: ${err}`);
-  }
+  const start = new Date;
+  console.log('Running rollup...');
+  const bundle = await rollup({
+    entry: path.join(process.cwd(), config.root, 'es6', 'index.js'),
+    plugins: [
+      babel({
+        exclude: [`${__dirname}/../node_modules/**`, '*.json'],
+        presets: ['es2015-rollup', 'stage-0', 'react'],
+        plugins: ['transform-runtime'],
+        runtimeHelpers: true,
+      }),
+      bundleBabel({
+        main: true,
+        jsNext: true,
+      }),
+      commonjs({
+        include: [`${__dirname}/../node_modules/**`, 'node_modules/**'],
+        sourceMap: false,
+      }),
+      json(),
+      config.uglify ? uglify() : void 0,
+    ].filter(x => x != null),
+    onwarn: Function.prototype,
+  });
+  await bundle.write({
+    format: 'umd',
+    dest: path.join(process.cwd(), 'bin', 'index.js'),
+    moduleId: npmPackage.name,
+    moduleName: config.global || npmPackage.name,
+  });
+  console.log(`Build finished in ${(new Date - start) / 1000} seconds.`);
 }

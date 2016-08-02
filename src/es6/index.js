@@ -37,5 +37,8 @@ if (config.watch) {
     });
   });
 } else {
-  build();
+  build().catch((err) => {
+    console.error(`Build error: ${err}`);
+    process.exit(1);
+  });
 }
