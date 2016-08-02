@@ -6,20 +6,20 @@ import buildLibrary from './library';
 import buildWeb from './web';
 import buildNode from './node';
 
-function build() {
+async function build() {
   switch (config.type) {
     case 'library': {
-      return buildLibrary();
+      return await buildLibrary();
     }
     case 'web': {
-      return buildWeb();
+      return await buildWeb();
     }
     case 'node': {
-      return buildNode();
+      return await buildNode();
     }
     default: {
       console.error('Invalid type in config');
-      return Promise.resolve();
+      return null;
     }
   }
 }
