@@ -1,4 +1,5 @@
-#  sgnbuild [![NPM]( 	https://img.shields.io/npm/v/sgnbuild.svg) ![Downloads per month](https://img.shields.io/npm/dm/sgnbuild.svg) ![Downloads total](https://img.shields.io/npm/dt/sgnbuild.svg)](https://npmjs.com/package/sgnbuild) [![Build Status](https://travis-ci.org/SignumCollective/sgnbuild.svg?branch=master)](https://travis-ci.org/SignumCollective/sgnbuild)
+#  sgnbuild [![NPM](https://img.shields.io/npm/v/sgnbuild.svg) ![Downloads per month](https://img.shields.io/npm/dm/sgnbuild.svg) ![Downloads total](https://img.shields.io/npm/dt/sgnbuild.svg)](https://npmjs.com/package/sgnbuild) [![Build Status](https://travis-ci.org/SignumCollective/sgnbuild.svg?branch=master)](https://travis-ci.org/SignumCollective/sgnbuild)
+## NOTICE: sgnbuild is built for the latest ["Current"](https://nodejs.org/en/download/current/) version of Node. If it works on other versions, consider that _undefined behavior_. Do not use sgnbuild on Node versions older than Current. (including 4, the current LTS)
 ## A web application build system
 
 Motto: _it works, nothing more_
