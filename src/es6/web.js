@@ -1,5 +1,5 @@
 import * as path from 'path';
-import { rollup } from 'rollup';
+import { rollup } from './rollup';
 import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
 import nodeResolve from 'rollup-plugin-node-resolve';
@@ -14,39 +14,41 @@ import config, { npmPackage } from './config';
 export default async function buildWeb() {
   const start = new Date;
   console.log('Running rollup...');
-  const bundle = await rollup({
-    entry: path.join(process.cwd(), config.root, 'es6', 'index.js'),
-    plugins: [
-      builtins(),
-      nodeResolve({
-        jsNext: true,
-        main: true,
-      }),
-      bundleBabel({
-        main: true,
-        jsNext: true,
-      }),
-      commonjs({
-        include: [`${__dirname}/../node_modules/**`, 'node_modules/**'],
-        sourceMap: false,
-      }),
-      babel({
-        exclude: ['node_modules/**', '*.json'],
-        presets: ['es2015-rollup', 'stage-0', 'react'],
-        plugins: ['transform-runtime'],
-        runtimeHelpers: true,
-      }),
-      json(),
-      nodeGlobals(),
-      config.uglify ? uglify() : void 0,
-    ].filter(x => x != null),
-    onwarn: Function.prototype,
-  });
-  await bundle.write({
-    format: 'cjs',
-    dest: path.join(process.cwd(), 'bin', 'index.js'),
-    moduleId: npmPackage.name,
-    moduleName: config.global || npmPackage.name,
+  await rollup({
+    rollup: {
+      entry: path.join(process.cwd(), config.root, 'es6', 'index.js'),
+      plugins: [
+        builtins(),
+        nodeResolve({
+          jsNext: true,
+          main: true,
+        }),
+        bundleBabel({
+          main: true,
+          jsNext: true,
+        }),
+        commonjs({
+          include: [`${__dirname}/../node_modules/**`, 'node_modules/**'],
+          sourceMap: false,
+        }),
+        babel({
+          exclude: ['node_modules/**', '*.json'],
+          presets: ['es2015-rollup', 'stage-0', 'react'],
+          plugins: ['transform-runtime'],
+          runtimeHelpers: true,
+        }),
+        json(),
+        nodeGlobals(),
+        config.uglify ? uglify() : void 0,
+      ].filter(x => x != null),
+      onwarn: Function.prototype,
+    },
+    bundle: {
+      format: 'cjs',
+      dest: path.join(process.cwd(), 'bin', 'index.js'),
+      moduleId: npmPackage.name,
+      moduleName: config.global || npmPackage.name,
+    },
   });
   console.log(`Build finished in ${(new Date - start) / 1000} seconds.`);
 }
