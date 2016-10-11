@@ -17,8 +17,13 @@ export default async function buildLibrary() {
       plugins: [
         babel({
           exclude: [`${__dirname}/../node_modules/**`, '*.json'],
-          presets: ['es2015-rollup', 'stage-0', 'react'],
-          plugins: ['transform-runtime'],
+          presets: [[
+            'es2015',
+            {
+              modules: false,
+            },
+          ], 'stage-0', 'react'],
+          plugins: ['transform-runtime', 'external-helpers'],
           runtimeHelpers: true,
         }),
         bundleBabel({

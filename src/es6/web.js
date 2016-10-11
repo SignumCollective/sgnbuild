@@ -33,8 +33,13 @@ export default async function buildWeb() {
         }),
         babel({
           exclude: ['node_modules/**', '*.json'],
-          presets: ['es2015-rollup', 'stage-0', 'react'],
-          plugins: ['transform-runtime'],
+          presets: [[
+            'es2015',
+            {
+              modules: false,
+            },
+          ], 'stage-0', 'react'],
+          plugins: ['transform-runtime', 'external-helpers'],
           runtimeHelpers: true,
         }),
         json(),

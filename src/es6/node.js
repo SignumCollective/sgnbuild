@@ -18,8 +18,13 @@ export default async function buildNode() {
         babel({
           exclude: [`${__dirname}/../node_modules/**`, 'node_modules/**', '*.json'],
           // Uglify hates ES2015
-          presets: [config.uglify ? 'es2015-rollup' : 'es2015-node-rollup', 'stage-0', 'react'],
-          plugins: ['transform-runtime'],
+          presets: [[
+            'es2015',
+            {
+              modules: false,
+            },
+          ], 'stage-0', 'react'],
+          plugins: ['transform-runtime', 'external-helpers'],
           runtimeHelpers: true,
         }),
         bundleBabel({
