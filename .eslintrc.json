@@ -6,6 +6,7 @@
     "es6": true
   },
   "rules": {
-    "no-console": "off"
+    "no-console": "off",
+    "import/extensions": "off"
   }
 }

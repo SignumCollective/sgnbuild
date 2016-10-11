@@ -1,5 +1,4 @@
 import * as path from 'path';
-import { rollup } from './rollup';
 import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
 import nodeResolve from 'rollup-plugin-node-resolve';
@@ -8,31 +7,34 @@ import nodeGlobals from 'rollup-plugin-node-globals';
 import builtins from 'rollup-plugin-node-builtins';
 import uglify from 'rollup-plugin-uglify';
 import bundleBabel from 'rollup-plugin-bundle-babel';
+import rollup from './rollup';
 
 import config, { npmPackage } from './config';
 
 export default async function buildWeb() {
-  const start = new Date;
+  const start = new Date();
   console.log('Running rollup...');
   await rollup({
     rollup: {
       entry: path.join(process.cwd(), config.root, 'es6', 'index.js'),
       plugins: [
+        commonjs({
+          include: [`${__dirname}/../node_modules/**`, 'node_modules/**'],
+          sourceMap: false,
+        }),
         builtins(),
+        nodeGlobals(),
         nodeResolve({
           jsNext: true,
           main: true,
+          browser: true,
         }),
         bundleBabel({
           main: true,
           jsNext: true,
         }),
-        commonjs({
-          include: [`${__dirname}/../node_modules/**`, 'node_modules/**'],
-          sourceMap: false,
-        }),
         babel({
-          exclude: ['node_modules/**', '*.json'],
+          exclude: ['node_modules/babel-runtime/helpers/**', '/home/zebulon/Documents/signum-workshop-client/node_modules/core-js/**'],
           presets: [[
             'es2015',
             {
@@ -43,17 +45,16 @@ export default async function buildWeb() {
           runtimeHelpers: true,
         }),
         json(),
-        nodeGlobals(),
-        config.uglify ? uglify() : void 0,
+        config.uglify ? uglify() : undefined,
       ].filter(x => x != null),
       onwarn: Function.prototype,
     },
     bundle: {
-      format: 'cjs',
+      format: 'umd',
       dest: path.join(process.cwd(), 'bin', 'index.js'),
       moduleId: npmPackage.name,
       moduleName: config.global || npmPackage.name,
     },
   });
-  console.log(`Build finished in ${(new Date - start) / 1000} seconds.`);
+  console.log(`Build finished in ${(new Date() - start) / 1000} seconds.`);
 }

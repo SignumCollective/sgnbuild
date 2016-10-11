@@ -1,15 +1,15 @@
 import * as path from 'path';
-import { rollup } from './rollup';
 import babel from 'rollup-plugin-babel';
 import json from 'rollup-plugin-json';
 import uglify from 'rollup-plugin-uglify';
 import bundleBabel from 'rollup-plugin-bundle-babel';
 import commonjs from 'rollup-plugin-commonjs';
+import rollup from './rollup';
 
 import config, { npmPackage } from './config';
 
 export default async function buildNode() {
-  const start = new Date;
+  const start = new Date();
   console.log('Running rollup...');
   await rollup({
     rollup: {
@@ -36,7 +36,7 @@ export default async function buildNode() {
           sourceMap: false,
         }),
         json(),
-        config.uglify ? uglify() : void 0,
+        config.uglify ? uglify() : undefined,
       ].filter(x => x != null),
       onwarn: Function.prototype,
     },
@@ -48,5 +48,5 @@ export default async function buildNode() {
       banner: '#!/usr/bin/env node',
     },
   });
-  console.log(`Build finished in ${(new Date - start) / 1000} seconds.`);
+  console.log(`Build finished in ${(new Date() - start) / 1000} seconds.`);
 }

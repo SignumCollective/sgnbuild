@@ -19,7 +19,7 @@ program
 const config = npmPackage.sgnbuild || {};
 config.type = program.type || config.type || 'library';
 config.root = program.root || config.root || 'src';
-config.global = program.global || config.global || void 0;
+config.global = program.global || config.global || undefined;
 if (program.uglify != null) {
   config.uglify = program.uglify;
 } else if (config.uglify == null) {
