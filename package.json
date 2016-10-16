@@ -1,6 +1,6 @@
 {
   "name": "sgnbuild",
-  "version": "0.12.1",
+  "version": "0.13.0",
   "description": "The build system used by all Signum projects",
   "main": "bin/index.js",
   "jsnext:main": "src/es6/index.js",
@@ -50,6 +50,7 @@
     "rollup-plugin-node-builtins": "^2.0.0",
     "rollup-plugin-node-globals": "^1.0.6",
     "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-replace": "^1.1.1",
     "rollup-plugin-uglify": "^1.0.1",
     "rollup-pluginutils": "^1.5.1"
   },

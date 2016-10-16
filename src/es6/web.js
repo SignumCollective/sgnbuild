@@ -7,6 +7,7 @@ import nodeGlobals from 'rollup-plugin-node-globals';
 import builtins from 'rollup-plugin-node-builtins';
 import uglify from 'rollup-plugin-uglify';
 import bundleBabel from 'rollup-plugin-bundle-babel';
+import replace from 'rollup-plugin-replace';
 import rollup from './rollup';
 
 import config, { npmPackage } from './config';
@@ -45,6 +46,9 @@ export default async function buildWeb() {
           runtimeHelpers: true,
         }),
         json(),
+        replace({
+          'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+        }),
         config.uglify ? uglify() : undefined,
       ].filter(x => x != null),
       onwarn: Function.prototype,
