@@ -34,7 +34,7 @@ export default async function buildWeb() {
           jsNext: true,
         }),
         babel({
-          exclude: ['node_modules/babel-runtime/helpers/**', '/home/zebulon/Documents/signum-workshop-client/node_modules/core-js/**'],
+          exclude: ['node_modules/babel-runtime/**', 'node_modules/core-js/**'],
           presets: [[
             'es2015',
             {
